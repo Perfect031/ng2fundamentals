@@ -26,6 +26,8 @@
       '@angular/upgrade/static': 'npm:@angular/upgrade/bundles/upgrade-static.umd.js',
       // other libraries
       'rxjs':                       'npm:rxjs',
+      'tslib': 'npm:tslib/tslib.js' ,
+      '@angular/common/http':       'npm:@angular/common/bundles/common-http.umd.js',
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {

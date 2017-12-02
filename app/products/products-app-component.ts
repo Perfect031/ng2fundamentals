@@ -1,12 +1,15 @@
 import {Component} from '@angular/core'
+import { ProductService } from "./product.service";
 
 @Component({
     moduleId: module.id,
     selector :'my-products',
-    templateUrl :'./product-list.component.html'
+    templateUrl :'./product-list.component.html',
+    providers : [ProductService]
 })
 
 export class ProductComponent{
+    constructor (private _productService: ProductService){}
     pageTitle : string = "Product List";
     products: any[] =  [
         {
@@ -30,4 +33,8 @@ export class ProductComponent{
             "imageUrl": "http://openclipart.org/image/300px/svg_to_png/73/rejon_Hammer.png"
         }
     ];
+
+    ngOnInit(): void {
+        this._productService.getProducts().subscribe(products => this.products = products)
+    }
 }
